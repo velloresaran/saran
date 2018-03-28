@@ -20,13 +20,13 @@ import setuptools
 
 setuptools.setup(
 
-    name="forwardscoverbot",
+    name="velloresaranbot",
     version="1",
 
     license="AGPL-3.0",
 
     author="Dario 91DarioDev",
-    author_email="dariomsn@hotmail.it",
+    author_email="saranstudiovlr@gmail.com",
 
     install_requires=[
         "python-telegram-bot",
@@ -34,12 +34,12 @@ setuptools.setup(
     ],
 
     packages=[
-        "forwardscoverbot",
+        "velloresaranbot",
     ],
 
     entry_points={
         "console_scripts": [
-            "forwardscoverbot = forwardscoverbot.__main__:main",
+            "velloresaranbot = velloresaranbot.__main__:main",
         ],
     },
 

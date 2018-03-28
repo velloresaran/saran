@@ -18,11 +18,11 @@
 import logging
 
 # files
-from forwardscoverbot import config
-from forwardscoverbot import commands
-from forwardscoverbot import messages
-from forwardscoverbot import utils
-from forwardscoverbot import albums
+from velloresaranbot import config
+from velloresaranbot import commands
+from velloresaranbot import messages
+from velloresaranbot import utils
+from velloresaranbot import albums
 
 from telegram.ext import (
         Updater,
@@ -44,7 +44,7 @@ def main():
     print("\nrunning...")
     # define the updater
     updater = Updater(token=config.BOT_TOKEN)
-    
+
     # define the dispatcher
     dp = updater.dispatcher
 

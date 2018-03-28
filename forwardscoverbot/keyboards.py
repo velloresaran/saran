@@ -15,15 +15,15 @@
 # along with ForwardsCoverBot.  If not, see <http://www.gnu.org/licenses/>
 
 
-from forwardscoverbot import constants
+from velloresaranbot import constants
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 def github_link_kb():
     button0 = InlineKeyboardButton(
-            text="Source code", 
-            url="https://github.com/91DarioDev/ForwardsCoverBot")
+            text="Source code",
+            url="https://github.com/91DarioDev/velloresaranBot")
     buttons_list = [[button0]]
     keyboard = InlineKeyboardMarkup(buttons_list)
     return keyboard
