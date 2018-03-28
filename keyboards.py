@@ -15,39 +15,23 @@
 # along with ForwardsCoverBot.  If not, see <http://www.gnu.org/licenses/>
 
 
-import setuptools
+from velloresaranbot import constants
+
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-setuptools.setup(
+def github_link_kb():
+    button0 = InlineKeyboardButton(
+            text="Source code",
+            url="https://github.com/91DarioDev/velloresaranBot")
+    buttons_list = [[button0]]
+    keyboard = InlineKeyboardMarkup(buttons_list)
+    return keyboard
 
-    name="velloresaranbot",
-    version="1",
 
-    license="AGPL-3.0",
-
-    author="Dario 91DarioDev",
-    author_email="saranstudiovlr@gmail.com",
-
-    install_requires=[
-        "python-telegram-bot",
-        "Pyyaml"
-    ],
-
-    packages=[
-        "velloresaranbot",
-    ],
-
-    entry_points={
-        "console_scripts": [
-            "velloresaranbot = velloresaranbot.__main__:main",
-        ],
-    },
-
-    include_package_data=True,
-    zip_safe=False,
-
-    classifiers=[
-        "Not on PyPI"
-    ],
-
-)
+def private_chat_kb():
+    bot_link = "https://t.me/{}".format(constants.GET_ME.username)
+    button0 = InlineKeyboardButton(text="Private chat", url=bot_link)
+    buttons_list = [[button0]]
+    keyboard = InlineKeyboardMarkup(buttons_list)
+    return keyboard

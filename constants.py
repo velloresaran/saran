@@ -15,39 +15,8 @@
 # along with ForwardsCoverBot.  If not, see <http://www.gnu.org/licenses/>
 
 
-import setuptools
+from velloresaranbot import config
 
+from telegram import Bot
 
-setuptools.setup(
-
-    name="velloresaranbot",
-    version="1",
-
-    license="AGPL-3.0",
-
-    author="Dario 91DarioDev",
-    author_email="saranstudiovlr@gmail.com",
-
-    install_requires=[
-        "python-telegram-bot",
-        "Pyyaml"
-    ],
-
-    packages=[
-        "velloresaranbot",
-    ],
-
-    entry_points={
-        "console_scripts": [
-            "velloresaranbot = velloresaranbot.__main__:main",
-        ],
-    },
-
-    include_package_data=True,
-    zip_safe=False,
-
-    classifiers=[
-        "Not on PyPI"
-    ],
-
-)
+GET_ME = Bot(config.BOT_TOKEN).getMe()

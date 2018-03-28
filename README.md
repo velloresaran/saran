@@ -11,33 +11,33 @@ To be sure that when you send messages to this bot to anonymize them it doesn't 
 **Clone and install:**
 ```
 cd path
-git clone https://github.com/91DarioDev/forwardscoverbot
-cd forwardscoverbot
+git clone https://github.com/91DarioDev/velloresaranbot
+cd velloresaranbot
 pip install .
 ```
 
 **Config the bot:**
-- open `forwardscoverbot/config/config.example.yaml`
+- open `velloresaranbot/config/config.example.yaml`
 - select all and copy
-- create a file `forwardscoverbot/config/config.yaml`
+- create a file `velloresaranbot/config/config.yaml`
 - paste and replace the values with real values
 - save and close
 
 **Run the bot:**
 ```
-forwardscoverbot
+velloresaranBot
 ```
-Note: _In case you want to call forwardscoverbot from another path, you can, but you have to specify the path of the config.yaml file as first argument in the cli.
+Note: _In case you want to call velloresaranbot from another path, you can, but you have to specify the path of the config.yaml file as first argument in the cli.
 Example:_
 
 ```
-fowardscoverbot path/forwardscoverbot/config/config.yaml
+velloresaranbot path/velloresaranbot/config/config.yaml
 ```
 
 **Upgrade the bot:**
 ```
-cd path/forwardscoverbot
-git pull https://github.com/91DarioDev/forwardscoverbot
+cd path/velloresaranbot
+git pull https://github.com/91DarioDev/velloresaranbot
 pip install --upgrade .
 ```
 

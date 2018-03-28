@@ -15,39 +15,29 @@
 # along with ForwardsCoverBot.  If not, see <http://www.gnu.org/licenses/>
 
 
-import setuptools
+from functools import wraps
+from velloresaranbot import config
+
+from telegram.ext.dispatcher import run_async
 
 
-setuptools.setup(
+def sep(num, none_is_zero=False):
+    if num is None:
+        return 0 if none_is_zero is True else None
+    return "{:,}".format(num)
 
-    name="velloresaranbot",
-    version="1",
 
-    license="AGPL-3.0",
+@run_async
+def invalid_command(bot, update):
+    text = "This command is invalid"
+    update.message.reply_text(text=text, quote=True)
 
-    author="Dario 91DarioDev",
-    author_email="saranstudiovlr@gmail.com",
 
-    install_requires=[
-        "python-telegram-bot",
-        "Pyyaml"
-    ],
-
-    packages=[
-        "velloresaranbot",
-    ],
-
-    entry_points={
-        "console_scripts": [
-            "velloresaranbot = velloresaranbot.__main__:main",
-        ],
-    },
-
-    include_package_data=True,
-    zip_safe=False,
-
-    classifiers=[
-        "Not on PyPI"
-    ],
-
-)
+def only_admin(func):
+    @wraps(func)
+    def wrapped(bot, update, *args, **kwargs):
+        if update.message.from_user.id not in config.ADMINS:
+            invalid_command(bot, update, *args, **kwargs)
+            return
+        return func(bot, update, *args, **kwargs)
+    return wrapped
