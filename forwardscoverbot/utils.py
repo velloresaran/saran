@@ -16,7 +16,7 @@
 
 
 from functools import wraps
-from forwardscoverbot import config
+from velloresaranbot import config
 
 from telegram.ext.dispatcher import run_async
 
@@ -41,4 +41,3 @@ def only_admin(func):
             return
         return func(bot, update, *args, **kwargs)
     return wrapped
-

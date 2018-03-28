@@ -15,10 +15,10 @@
 # along with ForwardsCoverBot.  If not, see <http://www.gnu.org/licenses/>
 
 
-from forwardscoverbot import utils
-from forwardscoverbot import dbwrapper
-from forwardscoverbot import keyboards
-from forwardscoverbot import messages
+from velloresaranbot import utils
+from velloresaranbot import dbwrapper
+from velloresaranbot import keyboards
+from velloresaranbot import messages
 
 from telegram import MessageEntity
 from telegram import ParseMode
@@ -68,8 +68,8 @@ def disable_web_page_preview(bot, update):
 
     text = update.message.reply_to_message.text_html
     update.message.reply_to_message.reply_text(
-            text=text, 
-            disable_web_page_preview=True, 
+            text=text,
+            disable_web_page_preview=True,
             parse_mode=ParseMode.HTML)
 
 
@@ -128,11 +128,8 @@ def add_caption(bot, update):
         return
 
     messages.process_message(bot, update, custom_caption=caption_html)
-    
+
 
 @utils.only_admin
 def stats(bot, update):
     update.message.reply_text(text=dbwrapper.stats_text(), parse_mode=ParseMode.HTML)
-
-
-

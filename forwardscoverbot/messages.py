@@ -20,8 +20,8 @@ import time
 from telegram import ParseMode
 from telegram.ext import DispatcherHandlerStop
 
-from forwardscoverbot import dbwrapper
-from forwardscoverbot import keyboards
+from velloresaranbot import dbwrapper
+from velloresaranbot import keyboards
 
 from telegram.ext.dispatcher import run_async
 
@@ -33,7 +33,7 @@ def before_processing(bot, update):
         update.effective_message.reply_text(text=text, reply_markup=keyboard)
         bot.leave_chat(chat_id=update.effective_message.chat_id)
         raise DispatcherHandlerStop
-        
+
     else:
         int_time = int(time.mktime(update.message.date.timetuple()))
         dbwrapper.add_user_db(update.message.from_user.id, int_time)
@@ -82,13 +82,13 @@ def process_message(bot, update, remove_caption=False, custom_caption=None):
         performer = message.audio.performer
         title = message.audio.title
         message.reply_audio(
-                audio=media, 
-                duration=duration, 
-                performer=performer, 
-                title=title, 
-                caption=caption, 
+                audio=media,
+                duration=duration,
+                performer=performer,
+                title=title,
+                caption=caption,
                 parse_mode=ParseMode.HTML)
-    
+
     elif message.video:
         media = message.video.file_id
         duration = message.video.duration
@@ -99,8 +99,8 @@ def process_message(bot, update, remove_caption=False, custom_caption=None):
         first_name = message.contact.first_name
         last_name = message.contact.last_name
         message.reply_contact(
-                phone_number=phone_number, 
-                first_name=first_name, 
+                phone_number=phone_number,
+                first_name=first_name,
                 last_name=last_name)
 
     elif message.venue:
@@ -110,10 +110,10 @@ def process_message(bot, update, remove_caption=False, custom_caption=None):
         address = message.venue.address
         foursquare_id = message.venue.foursquare_id
         message.reply_venue(
-                longitude=longitude, 
-                latitude=latitude, 
-                title=title, 
-                address=address, 
+                longitude=longitude,
+                latitude=latitude,
+                title=title,
+                address=address,
                 foursquare_id=foursquare_id)
 
     elif message.location:
@@ -126,7 +126,7 @@ def process_message(bot, update, remove_caption=False, custom_caption=None):
         length = message.video_note.length
         duration = message.video_note.duration
         message.reply_video_note(video_note=media, length=length, duration=duration)
-    
+
     elif message.game:
         text = "Sorry, telegram doesn't allow to echo this message"
         message.reply_text(text=text, quote=True)

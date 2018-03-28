@@ -18,8 +18,8 @@ import sqlite3
 import time
 import threading
 
-from forwardscoverbot import utils
-from forwardscoverbot import config
+from velloresaranbot import utils
+from velloresaranbot import config
 
 from telegram.ext.dispatcher import run_async
 
@@ -84,4 +84,3 @@ def stats_text():
 
 # create the database
 create_db()
-
